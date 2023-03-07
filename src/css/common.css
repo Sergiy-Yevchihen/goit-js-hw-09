@@ -16,3 +16,39 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.back-btn {
+  width: 90px;
+  height: 40px;
+  padding: 15px;
+}
+
+.custom-btn {
+  color: #656565;
+  width: 150px;
+  height: 40px;
+  padding: 10px 20px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  margin: 35px;
+}
+
+.btn-1 {
+  border: 1px solid #8ce436;
+  box-shadow: 0 0 5px #8ce436, 0 0 5px #8ce436 inset;
+  color: #8ce436;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.btn-1:hover {
+  color: black;
+   border: 1px solid black;
+}
