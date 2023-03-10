@@ -52,3 +52,24 @@ img {
   color: black;
    border: 1px solid black;
 }
+
+.timer {
+  display: flex;
+  
+  justify-content: center;
+  align-items: center;
+  background-color: #8ce436;
+  padding: 15px;
+  gap: 30px;
+}
+
+.field {
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #e04545;
+  background-color: #fff352;
+  border-radius: 10%;
+  padding: 10px;
+}

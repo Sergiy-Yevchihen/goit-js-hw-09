@@ -7,11 +7,21 @@
     <link rel="stylesheet" href="css/common.css" />
   </head>
   <body>
-    <p><a href="index.html">Go back</a></p>
-
-    <input type="text" id="datetime-picker" />
+     <p><a href="index.html"
+        ><button class="back-btn custom-btn btn-1" type="button">
+          <span>Go back</span>
+        </button></a
+      ></p>
+    <input type="text" id="datetime-picker" aria-label="Search" />
+    
     <button type="button" data-start>Start</button>
-
+    <button
+        class="btn-reload"
+        value="Refresh Page"
+        onClick="window.location.href=window.location.href"
+      >
+        RELOAD
+      </button>
     <div class="timer">
       <div class="field">
         <span class="value" data-days>00</span>
