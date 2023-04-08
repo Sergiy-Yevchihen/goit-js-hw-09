@@ -1,27 +1,34 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-
-const formRef = document.querySelector('.form');
-
-
-formRef.addEventListener('submit', onSubmitForm);
+import Notiflix from 'notiflix';
+const form = document.querySelector('.form');
 
 
-function onSubmitForm(e) {
-  e.preventDefault();
+form.addEventListener('submit', onSubmitForm);
 
-  let delay = Number(formRef.delay.value);
 
-  for (let i = 1; i <= formRef.amount.value; i += 1) {
-    createPromise(i, delay)
-      .then(({ position, delay }) => {
-        Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
-      })
-      .catch(({ position, delay }) => {
-        Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
-      });
-    delay += Number(formRef.step.value);
+function onSubmitForm(event) {
+  event.preventDefault();
+
+  // let delay = Number(formRef.delay.value);
+  const { delay, step, amount } = event.currentTarget.elements;
+  if (delay.value < 0 || step.value < 0 || amount.value < 0) {
+    Notiflix.Notify.warning(`❗ Please enter a positive number`);
+  } else {
+    for (let i = 0; i <= amount.value; i ++) {
+      let position = i + 1;
+      const delays = Number(delay.value) + step.value * i;
+      createPromise(i, delay)
+        .then(({ position, delay }) => {
+          Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
+        })
+        .catch(({ position, delay }) => {
+          Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
+        });
+      // delay += Number(formRef.step.value);
+    }
   }
+   event.currentTarget.reset();
 }
 
 
